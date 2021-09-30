@@ -1,3 +1,4 @@
+const logger = require('../../logger');
 const itemsModel = require('../../models/items.model');
 const orderModel = require('../../models/order.model');
 const APIError = require('../../utils/Error.class');
@@ -80,21 +81,25 @@ exports.getSingleOrder = async (req, res) => {
     }
 }
 
-exports.getOrders = (req, res) => {
+exports.getOrders = async (req, res) => {
     logger.info(`Endpoint - ${req.originalUrl} [${req.method}]`)
     try {
 
         let { status } = req.query
-        console.log(status);
-        // let query = {}
-        // if (status) {
+        let statusArray = [], query = {}
+        if (status && typeof status !== 'object') {
+            statusArray.push(status)
+        } else {
+            statusArray = [...status]
+        }
+        if (statusArray.length > 0) {
+            query["$in"] = statusArray
+        }
 
-        // }
+        let orders = await orderModel.find(query);
 
-        // let orders = await orderModel.find(req.query);
-
-        // logger.info(`Endpoint - ${req.originalUrl} [${req.method}] - succefull`)
-        return res.status(200).json(buildSuccess())
+        logger.info(`Endpoint - ${req.originalUrl} [${req.method}] - succefull`)
+        return res.status(200).json(buildSuccess({ orders }))
     } catch (error) {
         let serverError = await handle_server_error(error, req);
         return res.status(serverError.code).json(serverError);

@@ -4,7 +4,7 @@ const config = require('config')
 const userModel = require('../../models/users.model')
 const { USER_NOT_FOUND } = require('../../utils/handleError')
 
-exports.jwtSign = (data) => {
+exports.jwtSign = async (data) => {
     return new Promise(async (resolve, reject) => {
         try {
             let { user } = data
@@ -16,15 +16,15 @@ exports.jwtSign = (data) => {
     })
 }
 
-exports.jwtVerification = (req, res, next) => {
+exports.jwtVerification = async (req, res, next) => {
     try {
         let token = req.header('Authorization');
         if (!token) {
             throw new APIError(NOT_AUTHENTICATED)
         }
         const bearer = token.split(' ')
-        let token = jwt.verify(bearer[1], config.JWT_SECRET);
-        let userData = await userModel.findOne({ _id: token._id }).select('-password')
+        let user = jwt.verify(bearer[1], config.JWT_SECRET);
+        let userData = await userModel.findOne({ _id: user._id }).select('-password')
         if (!userData) {
             throw new APIError(USER_NOT_FOUND)
         }

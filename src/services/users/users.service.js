@@ -2,7 +2,7 @@ const logger = require('../../logger');
 const userModel = require('../../models/users.model');
 const { buildSuccess } = require('../../utils/handleError');
 
-exports.createUser = (req, res) => {
+exports.createUser = async (req, res) => {
     logger.info(`Endpoint - ${req.originalUrl} [${req.method}]`)
     try {
         let { email, phone, password, role } = req.body
@@ -20,7 +20,7 @@ exports.createUser = (req, res) => {
     }
 }
 
-exports.updateUser = (req, res) => {
+exports.updateUser = async (req, res) => {
     logger.info(`Endpoint - ${req.originalUrl} [${req.method}]`)
     try {
         let { id } = req.params
@@ -37,7 +37,7 @@ exports.updateUser = (req, res) => {
     }
 }
 
-exports.getUser = (req, res) => {
+exports.getUser = async (req, res) => {
     logger.info(`Endpoint - ${req.originalUrl} [${req.method}]`)
     try {
         let { id } = req.params
@@ -52,7 +52,7 @@ exports.getUser = (req, res) => {
     }
 }
 
-exports.getAllUsers = (req, res) => {
+exports.getAllUsers = async     (req, res) => {
     logger.info(`Endpoint - ${req.originalUrl} [${req.method}]`)
     try {
 
