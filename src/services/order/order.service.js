@@ -1,3 +1,4 @@
+const { Types } = require('mongoose');
 const logger = require('../../logger');
 const itemsModel = require('../../models/items.model');
 const orderModel = require('../../models/order.model');
@@ -46,12 +47,12 @@ exports.createOrder = async (req, res) => {
 
         orderData["items"] = []
 
-        itemsData.map((singleItem, index) => {
-            let randomPickup = singleItem.pickupLocation[Math.floor(Math.random() * array.length)];
-            let { quantity } = items.find(o => o._id === singleItem._id)
+        items.map((singleItem, index) => {
+            let itemData = itemsData.find(o => o._id == singleItem._id)
+            let randomPickup = itemData.pickupLocations[Math.floor(Math.random() * itemData.pickupLocations.length)];
             let obj = {
                 itemId: singleItem._id,
-                quantity,
+                quantity: singleItem.quantity,
                 pickupLocation: randomPickup
             }
             orderData["items"].push(obj)
@@ -82,8 +83,49 @@ exports.updateOrder = async (req, res) => {
             }
             updateData["devliveryPersonId"] = deliveryPersonId
         }
-        
-        let updateOrder = await orderModel.updateOne({ _id: id }, updateData);
+
+        await orderModel.updateOne({ _id: id }, updateData);
+        let updateOrder = await orderModel.aggregate([
+            {
+                $lookup: {
+                    from: "users",
+                    localField: "customerId",
+                    foreignField: "_id",
+                    as: "customerId"
+                }
+            },
+            { $unwind: '$customerId' },
+            {
+                $project: {
+                    "customerId.password": 0
+                }
+            },
+            {
+                $lookup: {
+                    from: "users",
+                    localField: "devliveryPersonId",
+                    foreignField: "_id",
+                    as: "devliveryPersonId"
+                }
+            },
+            {
+                $lookup: {
+                    from: "items",
+                    localField: "items.itemId",
+                    foreignField: "_id",
+                    as: "items.itemId"
+                }
+            },
+            {
+                $project: {
+                    "customerId.password": 0,
+                    "devliveryPersonId.password": 0,
+                }
+            },
+            {
+                $match: { _id: new Types.ObjectId(id) }
+            }
+        ])
         logger.info(`Endpoint - ${req.originalUrl} [${req.method}] - succefull`)
         return res.status(200).json(buildSuccess({ updateOrder }))
     } catch (error) {
@@ -97,7 +139,47 @@ exports.getSingleOrder = async (req, res) => {
     try {
         let { id } = req.params;
 
-        let order = await orderModel.findOne({ _id: id });
+        let order = await orderModel.aggregate([
+            {
+                $lookup: {
+                    from: "users",
+                    localField: "customerId",
+                    foreignField: "_id",
+                    as: "customerId"
+                }
+            },
+            { $unwind: '$customerId' },
+            {
+                $project: {
+                    "customerId.password": 0
+                }
+            },
+            {
+                $lookup: {
+                    from: "users",
+                    localField: "devliveryPersonId",
+                    foreignField: "_id",
+                    as: "devliveryPersonId"
+                }
+            },
+            {
+                $lookup: {
+                    from: "items",
+                    localField: "items.itemId",
+                    foreignField: "_id",
+                    as: "items.itemId"
+                }
+            },
+            {
+                $project: {
+                    "customerId.password": 0,
+                    "devliveryPersonId.password": 0,
+                }
+            },
+            {
+                $match: { _id: new Types.ObjectId(id) }
+            }
+        ])
 
         logger.info(`Endpoint - ${req.originalUrl} [${req.method}] - succefull`)
         return res.status(200).json(buildSuccess({ order }))
@@ -110,19 +192,64 @@ exports.getSingleOrder = async (req, res) => {
 exports.getOrders = async (req, res) => {
     logger.info(`Endpoint - ${req.originalUrl} [${req.method}]`)
     try {
-
-        let { status } = req.query
+        let { status, deliveryPersonId, customerId } = req.query
         let statusArray = [], query = {}
         if (status && typeof status !== 'object') {
             statusArray.push(status)
-        } else {
+        } else if (status) {
             statusArray = [...status]
         }
         if (statusArray.length > 0) {
-            query["$in"] = statusArray
+            query["status"] = { "$in": statusArray }
+        }
+        if (deliveryPersonId) {
+            query["deliveryPersonId"] = deliveryPersonId
+        }
+        if (customerId) {
+            query["customerId"] = customerId
         }
 
-        let orders = await orderModel.find(query);
+        let orders = await orderModel.aggregate([
+            {
+                $lookup: {
+                    from: "users",
+                    localField: "customerId",
+                    foreignField: "_id",
+                    as: "customerId"
+                }
+            },
+            { $unwind: '$customerId' },
+            {
+                $project: {
+                    "customerId.password": 0
+                }
+            },
+            {
+                $lookup: {
+                    from: "users",
+                    localField: "devliveryPersonId",
+                    foreignField: "_id",
+                    as: "devliveryPersonId"
+                }
+            },
+            {
+                $lookup: {
+                    from: "items",
+                    localField: "items.itemId",
+                    foreignField: "_id",
+                    as: "items.itemId"
+                }
+            },
+            {
+                $project: {
+                    "customerId.password": 0,
+                    "devliveryPersonId.password": 0,
+                }
+            },
+            {
+                $match: query
+            }
+        ])
 
         logger.info(`Endpoint - ${req.originalUrl} [${req.method}] - succefull`)
         return res.status(200).json(buildSuccess({ orders }))

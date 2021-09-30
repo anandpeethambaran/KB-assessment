@@ -24,7 +24,7 @@ exports.jwtVerification = async (req, res, next) => {
             throw new APIError(NOT_AUTHENTICATED)
         }
         const bearer = token.split(' ')
-        let user = jwt.verify(bearer[1], config.JWT_SECRET);
+        let { user } = jwt.verify(bearer[1], config.JWT_SECRET);
         let userData = await userModel.findOne({ _id: user._id }).select('-password')
         if (!userData) {
             throw new APIError(USER_NOT_FOUND)

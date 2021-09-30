@@ -20,7 +20,7 @@ exports.authenticate = async (req, res) => {
         if (!paswordvalid) {
             throw new APIError(PASSWORD_INCORRECT)
         }
-        delete user.password;
+        user.password = undefined;
 
         let token = await jwtSign({ user });
 
