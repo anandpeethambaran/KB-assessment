@@ -2,8 +2,9 @@ const { handle_server_error, buildSuccess, USER_NOT_FOUND, PASSWORD_INCORRECT } 
 const userModel = require('../../models/users.model')
 const APIError = require('../../utils/Error.class')
 const { jwtSign } = require('./auth.hooks')
+const logger = require("../../logger");
 
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
 
 
 exports.authenticate = async (req, res) => {

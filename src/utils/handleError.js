@@ -47,7 +47,7 @@ exports.buildFailed = (payload) => {
 }
 
 exports.USER_NOT_FOUND = {
-  status: 503,
+  status: 404,
   errorCode: "USER_NOT_FOUND",
   errorMessage: "user doesn't exists.",
 }
@@ -68,4 +68,16 @@ exports.NOT_AUTHENTICATED = {
   status: 401,
   errorCode: "NOT_AUTHENTICATED",
   errorMessage: "Unauthorized",
+}
+
+exports.EMPTY_CART = {
+  status: 406,
+  errorCode: "EMPTY_CART",
+  errorMessage: "Cart cannot be empty",
+}
+
+exports.ITEMS_NOT_FOUND = {
+  status: 404,
+  errorCode: "ITEMS_NOT_FOUND",
+  errorMessage: "Items not found",
 }

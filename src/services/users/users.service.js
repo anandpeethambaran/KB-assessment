@@ -1,3 +1,4 @@
+const logger = require('../../logger');
 const userModel = require('../../models/users.model');
 const { buildSuccess } = require('../../utils/handleError');
 
