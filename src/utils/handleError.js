@@ -52,6 +52,12 @@ exports.USER_NOT_FOUND = {
   errorMessage: "user doesn't exists.",
 }
 
+exports.DELIVERY_PERSON_NOT_FOUND = {
+  status: 404,
+  errorCode: "DELIVERY_PERSON_NOT_FOUND",
+  errorMessage: "Delivery Person doesn't exists.",
+}
+
 exports.USER_ALREADY_EXISTS = {
   status: 409,
   errorCode: "USER_ALREADY_EXISTS",
@@ -80,4 +86,10 @@ exports.ITEMS_NOT_FOUND = {
   status: 404,
   errorCode: "ITEMS_NOT_FOUND",
   errorMessage: "Items not found",
+}
+
+exports.UNAUTHORIZED = {
+  status: 401,
+  errorCode: "UNAUTHORIZED",
+  errorMessage: "Not authorized",
 }

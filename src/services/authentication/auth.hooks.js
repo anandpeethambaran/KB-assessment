@@ -2,7 +2,8 @@ const jwt = require('jsonwebtoken')
 const config = require('config')
 
 const userModel = require('../../models/users.model')
-const { USER_NOT_FOUND } = require('../../utils/handleError')
+const { USER_NOT_FOUND, NOT_AUTHENTICATED, handle_server_error, UNAUTHORIZED } = require('../../utils/handleError')
+const APIError = require('../../utils/Error.class')
 
 exports.jwtSign = async (data) => {
     return new Promise(async (resolve, reject) => {
@@ -29,6 +30,19 @@ exports.jwtVerification = async (req, res, next) => {
             throw new APIError(USER_NOT_FOUND)
         }
         req.user = userData;
+        next();
+    } catch (error) {
+        let serverError = await handle_server_error(error, req);
+        return res.status(serverError.code).json(serverError);
+    }
+}
+
+exports.checkRole = (role) => async (req, res, next) => {
+    try {
+        let user = req.user;
+        if (!role.includes(user.role)) {
+            throw new APIError(UNAUTHORIZED)
+        }
         next();
     } catch (error) {
         let serverError = await handle_server_error(error, req);

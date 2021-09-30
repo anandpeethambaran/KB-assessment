@@ -1,8 +1,9 @@
 const logger = require('../../logger');
 const itemsModel = require('../../models/items.model');
 const orderModel = require('../../models/order.model');
+const usersModel = require('../../models/users.model');
 const APIError = require('../../utils/Error.class');
-const { buildSuccess, handle_server_error, EMPTY_CART, ITEMS_NOT_FOUND } = require('../../utils/handleError');
+const { buildSuccess, handle_server_error, EMPTY_CART, ITEMS_NOT_FOUND, DELIVERY_PERSON_NOT_FOUND } = require('../../utils/handleError');
 
 exports.addItems = async (req, res) => {
     logger.info(`Endpoint - ${req.originalUrl} [${req.method}]`)
@@ -60,6 +61,31 @@ exports.createOrder = async (req, res) => {
 
         logger.info(`Endpoint - ${req.originalUrl} [${req.method}] - succefull`)
         return res.status(200).json(buildSuccess({ item }))
+    } catch (error) {
+        let serverError = await handle_server_error(error, req);
+        return res.status(serverError.code).json(serverError);
+    }
+}
+
+exports.updateOrder = async (req, res) => {
+    try {
+        let { id } = req.params
+
+        let { deliveryPersonId, status } = req.body
+        let updateData = {
+            status
+        }
+        if (deliveryPersonId) {
+            let deliveryPerson = await usersModel.findOne({ _id: deliveryPersonId });
+            if (!deliveryPerson) {
+                throw new APIError(DELIVERY_PERSON_NOT_FOUND)
+            }
+            updateData["devliveryPersonId"] = deliveryPersonId
+        }
+        
+        let updateOrder = await orderModel.updateOne({ _id: id }, updateData);
+        logger.info(`Endpoint - ${req.originalUrl} [${req.method}] - succefull`)
+        return res.status(200).json(buildSuccess({ updateOrder }))
     } catch (error) {
         let serverError = await handle_server_error(error, req);
         return res.status(serverError.code).json(serverError);
