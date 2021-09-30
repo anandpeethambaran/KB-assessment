@@ -46,20 +46,26 @@ exports.buildFailed = (payload) => {
   return { status: "FAILED", ...payload };
 }
 
-exports.GAME_NOT_FOUND = {
+exports.USER_NOT_FOUND = {
   status: 503,
-  errorCode: "GAME_NOT_FOUND",
-  errorMessage: "Game not found right now",
+  errorCode: "USER_NOT_FOUND",
+  errorMessage: "user doesn't exists.",
 }
 
-exports.FINISHED_GAME = {
-  status: 400,
-  errorCode: "FINISHED_GAME",
-  errorMessage: "Its a completed game!",
+exports.USER_ALREADY_EXISTS = {
+  status: 409,
+  errorCode: "USER_ALREADY_EXISTS",
+  errorMessage: "Phone already exists",
 }
 
-exports.INVALID_MOVE = {
-  status: 400,
-  errorCode: "INVALID_MOVE",
-  errorMessage: "Move not possible",
+exports.PASSWORD_INCORRECT = {
+  status: 401,
+  errorCode: "PASSWORD_INCORRECT",
+  errorMessage: "Incorrect password",
+}
+
+exports.NOT_AUTHENTICATED = {
+  status: 401,
+  errorCode: "NOT_AUTHENTICATED",
+  errorMessage: "Unauthorized",
 }

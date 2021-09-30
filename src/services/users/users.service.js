@@ -5,7 +5,10 @@ exports.createUser = (req, res) => {
     logger.info(`Endpoint - ${req.originalUrl} [${req.method}]`)
     try {
         let { email, phone, password, role } = req.body
-        let user = await userModel.create({ email, phone, password, role });
+
+        let salt = await bcrypt.genSalt(10);
+        let hashPassord = await bcrypt.hash(password, salt);
+        let user = await userModel.create({ email, phone, password: hashPassord, role });
 
         logger.info(`Endpoint - ${req.originalUrl} [${req.method}] - succefull`)
         return res.status(200).json(buildSuccess({ user }))
