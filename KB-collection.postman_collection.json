@@ -1,0 +1,1341 @@
+{
+	"info": {
+		"_postman_id": "06391151-9cc2-4554-86a1-b6959ee9887d",
+		"name": "KB-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone\": \"9846067022\",\r\n    \"email\": \"james@gmail.com\",\r\n    \"password\": \"Pass123\",\r\n    \"role\": \"CUSTOMER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3030/user",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"user"
+					]
+				},
+				"description": "This endpoint is used to create user. We can specify the role of the user in \"role\" field.\nIt only accepts \"ADMIN\", \"CUSTOMER\",\"DELIVERY_PERSON\""
+			},
+			"response": [
+				{
+					"name": "create user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": \"9846067022\",\r\n    \"email\": \"james@gmail.com\",\r\n    \"password\": \"Pass123\",\r\n    \"role\": \"CUSTOMER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3030/user",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "213"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"d5-b6a8EzIKl14lTdCodAc/BZhM3Ug\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Sep 2021 16:12:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"SUCCESS\",\n    \"user\": {\n        \"email\": \"james@gmail.com\",\n        \"phone\": \"9846067022\",\n        \"role\": \"CUSTOMER\",\n        \"_id\": \"6155e1edc7b8ab68c3ada7fd\",\n        \"createdAt\": \"2021-09-30T16:12:29.416Z\",\n        \"updatedAt\": \"2021-09-30T16:12:29.416Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "authentication",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone\": \"8606655644\",\r\n    \"password\":\"Pass123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3030/authentication",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"authentication"
+					]
+				},
+				"description": "This endpoint is used for login. It takes phone and password. It return the accessToken which is required for secured endpoints."
+			},
+			"response": [
+				{
+					"name": "authentication",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": \"8606655644\",\r\n    \"password\":\"Pass123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3030/authentication",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"authentication"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "618"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"26a-Kw+9RhAobASLeMaxcGHZ+DH2Dd8\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Sep 2021 16:10:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"SUCCESS\",\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxNTVlMDhlZTg3MjNmOGQ4MTUyY2EwMyIsImVtYWlsIjoiYW5hbmR0cDAwQGdtYWlsLmNvbSIsInBob25lIjoiODYwNjY1NTY0NCIsInJvbGUiOiJBRE1JTiIsImNyZWF0ZWRBdCI6IjIwMjEtMDktMzBUMTY6MDY6MzguNDQ1WiIsInVwZGF0ZWRBdCI6IjIwMjEtMDktMzBUMTY6MDY6MzguNDQ1WiIsIl9fdiI6MH0sImlhdCI6MTYzMzAxODIxMywiZXhwIjoxNjMzMTA0NjEzfQ.-bP7gIM6rLK9VUcOgxQnkv8yMRSXwRgosvQT1SCVSc0\",\n    \"user\": {\n        \"_id\": \"6155e08ee8723f8d8152ca03\",\n        \"email\": \"anandtp00@gmail.com\",\n        \"phone\": \"8606655644\",\n        \"role\": \"ADMIN\",\n        \"createdAt\": \"2021-09-30T16:06:38.445Z\",\n        \"updatedAt\": \"2021-09-30T16:06:38.445Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "get single user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxNTVlMDhlZTg3MjNmOGQ4MTUyY2EwMyIsImVtYWlsIjoiYW5hbmR0cDAwQGdtYWlsLmNvbSIsInBob25lIjoiODYwNjY1NTY0NCIsInJvbGUiOiJBRE1JTiIsImNyZWF0ZWRBdCI6IjIwMjEtMDktMzBUMTY6MDY6MzguNDQ1WiIsInVwZGF0ZWRBdCI6IjIwMjEtMDktMzBUMTY6MDY6MzguNDQ1WiIsIl9fdiI6MH0sImlhdCI6MTYzMzAxODIxMywiZXhwIjoxNjMzMTA0NjEzfQ.-bP7gIM6rLK9VUcOgxQnkv8yMRSXwRgosvQT1SCVSc0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3030/user/6155e08ee8723f8d8152ca03",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"user",
+						"6155e08ee8723f8d8152ca03"
+					]
+				},
+				"description": "This endpoint is used to fetch single user details."
+			},
+			"response": [
+				{
+					"name": "get single user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3030/user/6155e08ee8723f8d8152ca03",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"user",
+								"6155e08ee8723f8d8152ca03"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "214"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"d6-dIVVPW4RrRxk56FJoxWJAzFXubo\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Sep 2021 16:16:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"SUCCESS\",\n    \"user\": {\n        \"_id\": \"6155e08ee8723f8d8152ca03\",\n        \"email\": \"anandtp00@gmail.com\",\n        \"phone\": \"8606655644\",\n        \"role\": \"ADMIN\",\n        \"createdAt\": \"2021-09-30T16:06:38.445Z\",\n        \"updatedAt\": \"2021-09-30T16:06:38.445Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxNTVlMDhlZTg3MjNmOGQ4MTUyY2EwMyIsImVtYWlsIjoiYW5hbmR0cDAwQGdtYWlsLmNvbSIsInBob25lIjoiODYwNjY1NTY0NCIsInJvbGUiOiJBRE1JTiIsImNyZWF0ZWRBdCI6IjIwMjEtMDktMzBUMTY6MDY6MzguNDQ1WiIsInVwZGF0ZWRBdCI6IjIwMjEtMDktMzBUMTY6MDY6MzguNDQ1WiIsIl9fdiI6MH0sImlhdCI6MTYzMzAxODIxMywiZXhwIjoxNjMzMTA0NjEzfQ.-bP7gIM6rLK9VUcOgxQnkv8yMRSXwRgosvQT1SCVSc0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3030/user",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"user"
+					]
+				},
+				"description": "Endpoint used to get all users"
+			},
+			"response": [
+				{
+					"name": "Get all users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3030/user",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "819"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"333-QulL/uihUvKamEAVmk6Tv43bN0E\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Sep 2021 16:17:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"SUCCESS\",\n    \"users\": [\n        {\n            \"_id\": \"6155e08ee8723f8d8152ca03\",\n            \"email\": \"anandtp00@gmail.com\",\n            \"phone\": \"8606655644\",\n            \"password\": \"$2b$10$BgAeDzXiu9D1VckvF2.UL.R1skBFFq/Z1EnL7H1FIoko7SjQyopUS\",\n            \"role\": \"ADMIN\",\n            \"createdAt\": \"2021-09-30T16:06:38.445Z\",\n            \"updatedAt\": \"2021-09-30T16:06:38.445Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6155e1dbc7b8ab68c3ada7fa\",\n            \"email\": \"abhina@gmail.com\",\n            \"phone\": \"7012175917\",\n            \"password\": \"$2b$10$lzcHsFHhyHoeOOzOOHddPeNZliOxrxnDVTsaHyqklPUicmMe9gsZG\",\n            \"role\": \"DELIVERY_PERSON\",\n            \"createdAt\": \"2021-09-30T16:12:11.996Z\",\n            \"updatedAt\": \"2021-09-30T16:12:11.996Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6155e1edc7b8ab68c3ada7fd\",\n            \"email\": \"james@gmail.com\",\n            \"phone\": \"9846067022\",\n            \"password\": \"$2b$10$lU5VCET044fmSMQfrFJCiuOnQlpA1gvHWpzD/zToVLdbpqZ36BtIi\",\n            \"role\": \"CUSTOMER\",\n            \"createdAt\": \"2021-09-30T16:12:29.416Z\",\n            \"updatedAt\": \"2021-09-30T16:12:29.416Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "update user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxNTVlMDhlZTg3MjNmOGQ4MTUyY2EwMyIsImVtYWlsIjoiYW5hbmR0cDAwQGdtYWlsLmNvbSIsInBob25lIjoiODYwNjY1NTY0NCIsInJvbGUiOiJBRE1JTiIsImNyZWF0ZWRBdCI6IjIwMjEtMDktMzBUMTY6MDY6MzguNDQ1WiIsInVwZGF0ZWRBdCI6IjIwMjEtMDktMzBUMTY6MDY6MzguNDQ1WiIsIl9fdiI6MH0sImlhdCI6MTYzMzAxODIxMywiZXhwIjoxNjMzMTA0NjEzfQ.-bP7gIM6rLK9VUcOgxQnkv8yMRSXwRgosvQT1SCVSc0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"abhinavtp00@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3030/user/6155e1dbc7b8ab68c3ada7fa",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"user",
+						"6155e1dbc7b8ab68c3ada7fa"
+					]
+				},
+				"description": "Endpoint used to update user details"
+			},
+			"response": [
+				{
+					"name": "update user",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"abhinavtp00@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3030/user/6155e1dbc7b8ab68c3ada7fa",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"user",
+								"6155e1dbc7b8ab68c3ada7fa"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "226"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e2-wliAaCwhY/OGcVHmF0dcc6TMprU\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Sep 2021 16:26:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"SUCCESS\",\n    \"user\": {\n        \"_id\": \"6155e1dbc7b8ab68c3ada7fa\",\n        \"email\": \"abhinavtp00@gmail.com\",\n        \"phone\": \"7012175917\",\n        \"role\": \"DELIVERY_PERSON\",\n        \"createdAt\": \"2021-09-30T16:12:11.996Z\",\n        \"updatedAt\": \"2021-09-30T16:26:09.602Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "add items in catalogue",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxNTVlMDhlZTg3MjNmOGQ4MTUyY2EwMyIsImVtYWlsIjoiYW5hbmR0cDAwQGdtYWlsLmNvbSIsInBob25lIjoiODYwNjY1NTY0NCIsInJvbGUiOiJBRE1JTiIsImNyZWF0ZWRBdCI6IjIwMjEtMDktMzBUMTY6MDY6MzguNDQ1WiIsInVwZGF0ZWRBdCI6IjIwMjEtMDktMzBUMTY6MDY6MzguNDQ1WiIsIl9fdiI6MH0sImlhdCI6MTYzMzAxODIxMywiZXhwIjoxNjMzMTA0NjEzfQ.-bP7gIM6rLK9VUcOgxQnkv8yMRSXwRgosvQT1SCVSc0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Disprin\",\r\n    \"categoryName\": \"Pharmacy\",\r\n    \"pickupLocations\": [\r\n        \"Apollo Medicine, Sector 63, Gurgaon, Lat - 12.25, Long - 28.52\",\r\n        \"Apollo Medicine, Sector 22, Gurgaon, Lat - 12.20, Long - 28.29\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3030/order/add-catalogue",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"order",
+						"add-catalogue"
+					]
+				},
+				"description": "This endpoint is used to add items to the catalogue with its pickup locations."
+			},
+			"response": [
+				{
+					"name": "add items in catalogue",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Disprin\",\r\n    \"categoryName\": \"Pharmacy\",\r\n    \"pickupLocations\": [\r\n        \"Apollo Medicine, Sector 63, Gurgaon, Lat - 12.25, Long - 28.52\",\r\n        \"Apollo Medicine, Sector 22, Gurgaon, Lat - 12.20, Long - 28.29\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3030/order/add-catelogue",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"order",
+								"add-catelogue"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "341"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"155-4T4iPNE0WA3e53TBRi7VRkFpZLA\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Sep 2021 16:32:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"SUCCESS\",\n    \"item\": {\n        \"name\": \"Disprin\",\n        \"categoryName\": \"Pharmacy\",\n        \"pickupLocations\": [\n            \"Apollo Medicine, Sector 63, Gurgaon, Lat - 12.25, Long - 28.52\",\n            \"Apollo Medicine, Sector 22, Gurgaon, Lat - 12.20, Long - 28.29\"\n        ],\n        \"_id\": \"6155e6958b29f4fda76f3141\",\n        \"createdAt\": \"2021-09-30T16:32:21.116Z\",\n        \"updatedAt\": \"2021-09-30T16:32:21.116Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxNTVlMWVkYzdiOGFiNjhjM2FkYTdmZCIsImVtYWlsIjoiamFtZXNAZ21haWwuY29tIiwicGhvbmUiOiI5ODQ2MDY3MDIyIiwicm9sZSI6IkNVU1RPTUVSIiwiY3JlYXRlZEF0IjoiMjAyMS0wOS0zMFQxNjoxMjoyOS40MTZaIiwidXBkYXRlZEF0IjoiMjAyMS0wOS0zMFQxNjoxMjoyOS40MTZaIiwiX192IjowfSwiaWF0IjoxNjMzMDIwMDE1LCJleHAiOjE2MzMxMDY0MTV9.1iHcOVy_KiIIpeKveIocx0FbD4RCk6RAzpVSy06pYJE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerId\":\"6155e1edc7b8ab68c3ada7fd\",\r\n    \"items\":[{\r\n        \"_id\":\"6155e6688b29f4fda76f313e\",\r\n        \"quantity\" : 2\r\n    }]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3030/order",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"order"
+					]
+				},
+				"description": "This endpoint is used to create new order by customer."
+			},
+			"response": [
+				{
+					"name": "Create Order",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\":\"6155e1edc7b8ab68c3ada7fd\",\r\n    \"items\":[{\r\n        \"_id\":\"6155e6688b29f4fda76f313e\",\r\n        \"quantity\" : 2\r\n    }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3030/order",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"order"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "376"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"178-9Rr4+jL+4oMhAZ2wThZqmvtx/lY\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Sep 2021 16:46:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"SUCCESS\",\n    \"item\": {\n        \"customerId\": \"6155e1edc7b8ab68c3ada7fd\",\n        \"items\": [\n            {\n                \"itemId\": \"6155e6688b29f4fda76f313e\",\n                \"quantity\": 2,\n                \"pickupLocation\": \"24x7 Sector 54, Gurgaon, Lat - 12.21, Long - 28.72\",\n                \"_id\": \"6155ea00563d21846abfc573\"\n            }\n        ],\n        \"status\": \"TASK_CREATED\",\n        \"_id\": \"6155ea00563d21846abfc572\",\n        \"createdAt\": \"2021-09-30T16:46:56.117Z\",\n        \"updatedAt\": \"2021-09-30T16:46:56.117Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "get all orders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxNTVlMWVkYzdiOGFiNjhjM2FkYTdmZCIsImVtYWlsIjoiamFtZXNAZ21haWwuY29tIiwicGhvbmUiOiI5ODQ2MDY3MDIyIiwicm9sZSI6IkNVU1RPTUVSIiwiY3JlYXRlZEF0IjoiMjAyMS0wOS0zMFQxNjoxMjoyOS40MTZaIiwidXBkYXRlZEF0IjoiMjAyMS0wOS0zMFQxNjoxMjoyOS40MTZaIiwiX192IjowfSwiaWF0IjoxNjMzMDIwMDE1LCJleHAiOjE2MzMxMDY0MTV9.1iHcOVy_KiIIpeKveIocx0FbD4RCk6RAzpVSy06pYJE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3030/order?status=ORDER_ASSIGNED",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"order"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "ORDER_ASSIGNED",
+							"description": "order status"
+						}
+					]
+				},
+				"description": "This endpoint is used to get all orders\nstatus filter can be used by passing status in query parameter\n\nOrders for specific delivery boy can also be fetched from this endpoint by passing deliveryPersonId in query parameters\n\nOrders from specific customer can also be fetched from this endpoint by passing customerId in query parameters"
+			},
+			"response": [
+				{
+					"name": "get all orders",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3030/order?status=TASK_CREATED",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"order"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "TASK_CREATED",
+									"description": "order status"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "380"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"17c-fOHDzqm4aCuYLp344xEiNZIqkAw\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Sep 2021 17:11:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"SUCCESS\",\n    \"orders\": [\n        {\n            \"_id\": \"6155ea00563d21846abfc572\",\n            \"customerId\": \"6155e1edc7b8ab68c3ada7fd\",\n            \"items\": [\n                {\n                    \"itemId\": \"6155e6688b29f4fda76f313e\",\n                    \"quantity\": 2,\n                    \"pickupLocation\": \"24x7 Sector 54, Gurgaon, Lat - 12.21, Long - 28.72\",\n                    \"_id\": \"6155ea00563d21846abfc573\"\n                }\n            ],\n            \"status\": \"TASK_CREATED\",\n            \"createdAt\": \"2021-09-30T16:46:56.117Z\",\n            \"updatedAt\": \"2021-09-30T16:46:56.117Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+				},
+				{
+					"name": "get all orders",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3030/order?status=ORDER_ASSIGNED",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"order"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "ORDER_ASSIGNED",
+									"description": "order status"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "924"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"39c-6xTsUO29bRashsZMHgN/JdEerCA\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Sep 2021 17:44:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"SUCCESS\",\n    \"orders\": [\n        {\n            \"_id\": \"6155ea00563d21846abfc572\",\n            \"customerId\": {\n                \"_id\": \"6155e1edc7b8ab68c3ada7fd\",\n                \"email\": \"james@gmail.com\",\n                \"phone\": \"9846067022\",\n                \"role\": \"CUSTOMER\",\n                \"createdAt\": \"2021-09-30T16:12:29.416Z\",\n                \"updatedAt\": \"2021-09-30T16:12:29.416Z\",\n                \"__v\": 0\n            },\n            \"items\": {\n                \"itemId\": [\n                    {\n                        \"_id\": \"6155e6688b29f4fda76f313e\",\n                        \"name\": \"Chips\",\n                        \"categoryName\": \"Food and Beverages\",\n                        \"pickupLocations\": [\n                            \"24x7 Sector 54, Gurgaon, Lat - 12.21, Long - 28.72\",\n                            \"Big Bazaar, Sector 25, Gurgaon, Lat - 12.23, Long - 28.79\"\n                        ],\n                        \"createdAt\": \"2021-09-30T16:31:36.185Z\",\n                        \"updatedAt\": \"2021-09-30T16:31:36.185Z\",\n                        \"__v\": 0\n                    }\n                ]\n            },\n            \"status\": \"ORDER_ASSIGNED\",\n            \"createdAt\": \"2021-09-30T16:46:56.117Z\",\n            \"updatedAt\": \"2021-09-30T17:19:18.771Z\",\n            \"__v\": 0,\n            \"devliveryPersonId\": [\n                {\n                    \"_id\": \"6155e1dbc7b8ab68c3ada7fa\",\n                    \"email\": \"abhinavtp00@gmail.com\",\n                    \"phone\": \"7012175917\",\n                    \"role\": \"DELIVERY_PERSON\",\n                    \"createdAt\": \"2021-09-30T16:12:11.996Z\",\n                    \"updatedAt\": \"2021-09-30T16:26:09.602Z\",\n                    \"__v\": 0\n                }\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "get single order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxNTVlMWVkYzdiOGFiNjhjM2FkYTdmZCIsImVtYWlsIjoiamFtZXNAZ21haWwuY29tIiwicGhvbmUiOiI5ODQ2MDY3MDIyIiwicm9sZSI6IkNVU1RPTUVSIiwiY3JlYXRlZEF0IjoiMjAyMS0wOS0zMFQxNjoxMjoyOS40MTZaIiwidXBkYXRlZEF0IjoiMjAyMS0wOS0zMFQxNjoxMjoyOS40MTZaIiwiX192IjowfSwiaWF0IjoxNjMzMDIwMDE1LCJleHAiOjE2MzMxMDY0MTV9.1iHcOVy_KiIIpeKveIocx0FbD4RCk6RAzpVSy06pYJE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3030/order/6155ea00563d21846abfc572",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"order",
+						"6155ea00563d21846abfc572"
+					]
+				},
+				"description": "This is used to get single order details"
+			},
+			"response": [
+				{
+					"name": "get single order",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3030/order/6155ea00563d21846abfc572",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"order",
+								"6155ea00563d21846abfc572"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "377"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"179-8XzgE73Gva4nBR444uJtNzW7hK0\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Sep 2021 17:11:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"SUCCESS\",\n    \"order\": {\n        \"_id\": \"6155ea00563d21846abfc572\",\n        \"customerId\": \"6155e1edc7b8ab68c3ada7fd\",\n        \"items\": [\n            {\n                \"itemId\": \"6155e6688b29f4fda76f313e\",\n                \"quantity\": 2,\n                \"pickupLocation\": \"24x7 Sector 54, Gurgaon, Lat - 12.21, Long - 28.72\",\n                \"_id\": \"6155ea00563d21846abfc573\"\n            }\n        ],\n        \"status\": \"TASK_CREATED\",\n        \"createdAt\": \"2021-09-30T16:46:56.117Z\",\n        \"updatedAt\": \"2021-09-30T16:46:56.117Z\",\n        \"__v\": 0\n    }\n}"
+				},
+				{
+					"name": "get single order",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3030/order/6155ea00563d21846abfc572",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"order",
+								"6155ea00563d21846abfc572"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "923"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"39b-/D9wYzBQrw+rzp42hhpg8y0fD2E\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Sep 2021 17:45:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"SUCCESS\",\n    \"order\": [\n        {\n            \"_id\": \"6155ea00563d21846abfc572\",\n            \"customerId\": {\n                \"_id\": \"6155e1edc7b8ab68c3ada7fd\",\n                \"email\": \"james@gmail.com\",\n                \"phone\": \"9846067022\",\n                \"role\": \"CUSTOMER\",\n                \"createdAt\": \"2021-09-30T16:12:29.416Z\",\n                \"updatedAt\": \"2021-09-30T16:12:29.416Z\",\n                \"__v\": 0\n            },\n            \"items\": {\n                \"itemId\": [\n                    {\n                        \"_id\": \"6155e6688b29f4fda76f313e\",\n                        \"name\": \"Chips\",\n                        \"categoryName\": \"Food and Beverages\",\n                        \"pickupLocations\": [\n                            \"24x7 Sector 54, Gurgaon, Lat - 12.21, Long - 28.72\",\n                            \"Big Bazaar, Sector 25, Gurgaon, Lat - 12.23, Long - 28.79\"\n                        ],\n                        \"createdAt\": \"2021-09-30T16:31:36.185Z\",\n                        \"updatedAt\": \"2021-09-30T16:31:36.185Z\",\n                        \"__v\": 0\n                    }\n                ]\n            },\n            \"status\": \"ORDER_ASSIGNED\",\n            \"createdAt\": \"2021-09-30T16:46:56.117Z\",\n            \"updatedAt\": \"2021-09-30T17:19:18.771Z\",\n            \"__v\": 0,\n            \"devliveryPersonId\": [\n                {\n                    \"_id\": \"6155e1dbc7b8ab68c3ada7fa\",\n                    \"email\": \"abhinavtp00@gmail.com\",\n                    \"phone\": \"7012175917\",\n                    \"role\": \"DELIVERY_PERSON\",\n                    \"createdAt\": \"2021-09-30T16:12:11.996Z\",\n                    \"updatedAt\": \"2021-09-30T16:26:09.602Z\",\n                    \"__v\": 0\n                }\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "update order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxNTVlMWVkYzdiOGFiNjhjM2FkYTdmZCIsImVtYWlsIjoiamFtZXNAZ21haWwuY29tIiwicGhvbmUiOiI5ODQ2MDY3MDIyIiwicm9sZSI6IkNVU1RPTUVSIiwiY3JlYXRlZEF0IjoiMjAyMS0wOS0zMFQxNjoxMjoyOS40MTZaIiwidXBkYXRlZEF0IjoiMjAyMS0wOS0zMFQxNjoxMjoyOS40MTZaIiwiX192IjowfSwiaWF0IjoxNjMzMDIwMDE1LCJleHAiOjE2MzMxMDY0MTV9.1iHcOVy_KiIIpeKveIocx0FbD4RCk6RAzpVSy06pYJE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"deliveryPersonId\": \"6155e1dbc7b8ab68c3ada7fa\",\r\n    \"status\": \"ORDER_ASSIGNED\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3030/order/6155ea00563d21846abfc572",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"order",
+						"6155ea00563d21846abfc572"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
